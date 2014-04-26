@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<solver>
+  <!--<environmentMode>FAST_ASSERT</environmentMode>-->
+
+  <!-- Domain model configuration -->
+  <solutionClass>be.ge0ffrey.coursera.knapsack.domain.Knapsack</solutionClass>
+  <planningEntityClass>be.ge0ffrey.coursera.knapsack.domain.Item</planningEntityClass>
+
+  <!-- Score configuration -->
+  <scoreDirectorFactory>
+    <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+    <easyScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</easyScoreCalculatorClass>
+    <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
+    <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+    <!--<assertionScoreDirectorFactory>-->
+      <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</incrementalScoreCalculatorClass>-->
+    <!--</assertionScoreDirectorFactory>-->
+  </scoreDirectorFactory>
+
+  <!-- Optimization algorithms configuration -->
+  <termination>
+    <minutesSpentLimit>120</minutesSpentLimit>
+  </termination>
+  <constructionHeuristic>
+    <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+  </constructionHeuristic>
+  <localSearch>
+    <acceptor>
+      <entityTabuSize>7</entityTabuSize>
+    </acceptor>
+    <forager>
+      <acceptedCountLimit>1000</acceptedCountLimit>
+    </forager>
+  </localSearch>
+</solver>
