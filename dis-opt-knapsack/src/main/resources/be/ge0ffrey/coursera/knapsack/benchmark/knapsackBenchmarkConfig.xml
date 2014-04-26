@@ -61,7 +61,7 @@
           <swapMoveSelector/>
         </unionMoveSelector>
         <acceptor>
-          <simulatedAnnealingStartingTemperature>100hard/-10000soft</simulatedAnnealingStartingTemperature>
+          <simulatedAnnealingStartingTemperature>1000hard/0soft</simulatedAnnealingStartingTemperature>
         </acceptor>
         <forager>
           <acceptedCountLimit>1</acceptedCountLimit>
@@ -81,7 +81,7 @@
           <swapMoveSelector/>
         </unionMoveSelector>
         <acceptor>
-          <simulatedAnnealingStartingTemperature>1000hard/-100000soft</simulatedAnnealingStartingTemperature>
+          <simulatedAnnealingStartingTemperature>10000hard/0soft</simulatedAnnealingStartingTemperature>
         </acceptor>
         <forager>
           <acceptedCountLimit>1</acceptedCountLimit>

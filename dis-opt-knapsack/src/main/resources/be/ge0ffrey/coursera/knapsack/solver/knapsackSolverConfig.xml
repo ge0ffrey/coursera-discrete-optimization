@@ -26,11 +26,16 @@
     <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
   </constructionHeuristic>
   <localSearch>
+    <moveIteratorFactory>
+      <moveIteratorFactoryClass>be.ge0ffrey.coursera.knapsack.solver.move.MultiItemInverseMoveIteratorFactory</moveIteratorFactoryClass>
+    </moveIteratorFactory>
     <acceptor>
-      <entityTabuSize>7</entityTabuSize>
+      <!--<entityTabuSize>7</entityTabuSize>-->
+      <acceptorType>HILL_CLIMBING</acceptorType>
     </acceptor>
     <forager>
-      <acceptedCountLimit>1000</acceptedCountLimit>
+      <acceptedCountLimit>2000000000</acceptedCountLimit>
+      <pickEarlyType>FIRST_LAST_STEP_SCORE_IMPROVING</pickEarlyType>
     </forager>
   </localSearch>
 </solver>
