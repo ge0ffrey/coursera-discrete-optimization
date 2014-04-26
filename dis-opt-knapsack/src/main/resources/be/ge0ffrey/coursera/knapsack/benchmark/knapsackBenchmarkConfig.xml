@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plannerBenchmark>
+  <benchmarkDirectory>local/data/knapsack</benchmarkDirectory>
+  <parallelBenchmarkCount>AUTO</parallelBenchmarkCount>
+  <warmUpSecondsSpentLimit>30</warmUpSecondsSpentLimit>
+
+  <inheritedSolverBenchmark>
+    <problemBenchmarks>
+      <problemIOClass>be.ge0ffrey.coursera.knapsack.persistence.KnapsackProblemIO</problemIOClass>
+      <inputSolutionFile>data/knapsack/import/ks_30_0.txt</inputSolutionFile>
+      <inputSolutionFile>data/knapsack/import/ks_50_0.txt</inputSolutionFile>
+      <inputSolutionFile>data/knapsack/import/ks_200_0.txt</inputSolutionFile>
+      <inputSolutionFile>data/knapsack/import/ks_400_0.txt</inputSolutionFile>
+      <inputSolutionFile>data/knapsack/import/ks_1000_0.txt</inputSolutionFile>
+      <inputSolutionFile>data/knapsack/import/ks_10000_0.txt</inputSolutionFile>
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemBenchmarks>
+
+    <solver>
+      <solutionClass>be.ge0ffrey.coursera.knapsack.domain.Knapsack</solutionClass>
+      <planningEntityClass>be.ge0ffrey.coursera.knapsack.domain.Item</planningEntityClass>
+
+      <scoreDirectorFactory>
+        <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+        <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackIncrementalScoreCalculator</incrementalScoreCalculatorClass>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+      </scoreDirectorFactory>
+
+      <termination>
+        <minutesSpentLimit>2</minutesSpentLimit>
+      </termination>
+    </solver>
+  </inheritedSolverBenchmark>
+
+  <solverBenchmark>
+    <name>Tabu Search</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <acceptor>
+          <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>1000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Simulated Annealing 1</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <simulatedAnnealingStartingTemperature>100hard/-10000soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>1</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Simulated Annealing 2</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <simulatedAnnealingStartingTemperature>1000hard/-100000soft</simulatedAnnealingStartingTemperature>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>1</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+</plannerBenchmark>
