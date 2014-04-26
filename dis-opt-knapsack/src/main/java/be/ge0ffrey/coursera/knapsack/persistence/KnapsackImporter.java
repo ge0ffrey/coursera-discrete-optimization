@@ -79,7 +79,7 @@ public class KnapsackImporter extends AbstractTxtSolutionImporter {
             List<Item> itemList = new ArrayList<Item>(itemListSize);
             long id = 0L;
             for (int i = 0; i < itemListSize; i++) {
-                String[] lineTokens = splitBySpace(bufferedReader.readLine(), 2, 2);
+                String[] lineTokens = splitBySpace(bufferedReader.readLine(), 2);
                 Item item = new Item();
                 item.setId(id);
                 id++;
