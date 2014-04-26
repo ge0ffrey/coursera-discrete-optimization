@@ -35,11 +35,20 @@ import org.optaplanner.persistence.xstream.XStreamScoreConverter;
 @XStreamAlias("Knapsack")
 public class Knapsack extends AbstractPersistable implements Solution<HardSoftScore> {
 
+    private String name;
     private Integer capacity;
     private List<Item> itemList;
 
     @XStreamConverter(value = XStreamScoreConverter.class, types = {HardSoftScoreDefinition.class})
     private HardSoftScore score;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getCapacity() {
         return capacity;

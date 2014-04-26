@@ -17,10 +17,14 @@
 package be.ge0ffrey.coursera.knapsack.app;
 
 import be.ge0ffrey.coursera.knapsack.persistence.KnapsackDao;
+import be.ge0ffrey.coursera.knapsack.persistence.KnapsackExporter;
+import be.ge0ffrey.coursera.knapsack.persistence.KnapsackImporter;
 import be.ge0ffrey.coursera.knapsack.swingui.KnapsackPanel;
 import org.optaplanner.core.api.solver.Solver;
 import org.optaplanner.core.api.solver.SolverFactory;
 import org.optaplanner.examples.common.app.CommonApp;
+import org.optaplanner.examples.common.persistence.AbstractSolutionExporter;
+import org.optaplanner.examples.common.persistence.AbstractSolutionImporter;
 import org.optaplanner.examples.common.persistence.SolutionDao;
 import org.optaplanner.examples.common.swingui.SolutionPanel;
 
@@ -54,6 +58,16 @@ public class KnapsackApp extends CommonApp {
     @Override
     protected SolutionDao createSolutionDao() {
         return new KnapsackDao();
+    }
+
+    @Override
+    protected AbstractSolutionImporter createSolutionImporter() {
+        return new KnapsackImporter();
+    }
+
+    @Override
+    protected AbstractSolutionExporter createSolutionExporter() {
+        return new KnapsackExporter();
     }
 
 }
