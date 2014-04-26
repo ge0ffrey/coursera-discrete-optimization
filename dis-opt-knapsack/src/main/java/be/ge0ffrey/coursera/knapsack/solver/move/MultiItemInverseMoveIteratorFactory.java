@@ -67,6 +67,9 @@ public class MultiItemInverseMoveIteratorFactory implements MoveIteratorFactory 
 
         @Override
         public Move next() {
+            // TODO select x random items to add, focusing on high-value items,
+            // y random items to remove, focusing on low-value items
+            // and optionally then add/remove items to become feasible
             int inverseCount = workingRandom.nextInt(maxInverseCount) + 1;
             Set<Item> itemSet = new HashSet<Item>(inverseCount);
             for (int i = 0; i < inverseCount; i++) {
