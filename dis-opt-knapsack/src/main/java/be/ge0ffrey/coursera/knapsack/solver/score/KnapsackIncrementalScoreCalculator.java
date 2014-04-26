@@ -16,9 +16,6 @@
 
 package be.ge0ffrey.coursera.knapsack.solver.score;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import be.ge0ffrey.coursera.knapsack.domain.Item;
 import be.ge0ffrey.coursera.knapsack.domain.Knapsack;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;

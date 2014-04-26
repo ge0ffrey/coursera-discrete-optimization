@@ -17,7 +17,6 @@
 package be.ge0ffrey.coursera.knapsack.persistence;
 
 import be.ge0ffrey.coursera.knapsack.domain.Knapsack;
-import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
 import org.optaplanner.examples.common.persistence.XStreamSolutionDao;
 
 public class KnapsackDao extends XStreamSolutionDao {

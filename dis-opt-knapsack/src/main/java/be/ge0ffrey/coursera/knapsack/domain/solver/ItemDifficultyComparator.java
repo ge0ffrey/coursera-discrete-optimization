@@ -21,7 +21,6 @@ import java.util.Comparator;
 
 import be.ge0ffrey.coursera.knapsack.domain.Item;
 import org.apache.commons.lang.builder.CompareToBuilder;
-import org.optaplanner.examples.cloudbalancing.domain.CloudProcess;
 
 public class ItemDifficultyComparator implements Comparator<Item>, Serializable {
 

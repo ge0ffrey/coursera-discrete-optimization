@@ -16,7 +16,6 @@
 
 package be.ge0ffrey.coursera.knapsack.domain;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -29,8 +28,6 @@ import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.impl.score.buildin.hardsoft.HardSoftScoreDefinition;
 import org.optaplanner.core.impl.solution.Solution;
-import org.optaplanner.examples.cloudbalancing.domain.CloudComputer;
-import org.optaplanner.examples.cloudbalancing.domain.CloudProcess;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 import org.optaplanner.persistence.xstream.XStreamScoreConverter;
 

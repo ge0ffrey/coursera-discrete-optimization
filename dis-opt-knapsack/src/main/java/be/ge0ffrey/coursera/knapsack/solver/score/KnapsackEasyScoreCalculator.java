@@ -20,17 +20,9 @@ import be.ge0ffrey.coursera.knapsack.domain.Item;
 import be.ge0ffrey.coursera.knapsack.domain.Knapsack;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
-import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
-import org.optaplanner.examples.cloudbalancing.domain.CloudComputer;
-import org.optaplanner.examples.cloudbalancing.domain.CloudProcess;
-import org.optaplanner.examples.cloudbalancing.solver.score.CloudBalancingMapBasedEasyScoreCalculator;
 
 public class KnapsackEasyScoreCalculator implements EasyScoreCalculator<Knapsack> {
 
-    /**
-     * A very simple implementation. The double loop can easily be removed by using Maps as shown in
-     * {@link CloudBalancingMapBasedEasyScoreCalculator#calculateScore(CloudBalance)}.
-     */
     public HardSoftScore calculateScore(Knapsack knapsack) {
         int free = knapsack.getCapacity();
         int valueTotal = 0;

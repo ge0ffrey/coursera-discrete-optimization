@@ -16,35 +16,8 @@
 
 package be.ge0ffrey.coursera.knapsack.swingui;
 
-import java.awt.GridLayout;
-import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import javax.swing.AbstractAction;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
 import be.ge0ffrey.coursera.knapsack.domain.Knapsack;
-import org.apache.commons.lang.ObjectUtils;
-import org.optaplanner.core.impl.score.director.ScoreDirector;
 import org.optaplanner.core.impl.solution.Solution;
-import org.optaplanner.core.impl.solver.ProblemFactChange;
-import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
-import org.optaplanner.examples.cloudbalancing.domain.CloudComputer;
-import org.optaplanner.examples.cloudbalancing.domain.CloudProcess;
-import org.optaplanner.examples.cloudbalancing.swingui.CloudBalancingPanel;
-import org.optaplanner.examples.cloudbalancing.swingui.CloudComputerPanel;
 import org.optaplanner.examples.common.swingui.SolutionPanel;
 
 public class KnapsackPanel extends SolutionPanel {
