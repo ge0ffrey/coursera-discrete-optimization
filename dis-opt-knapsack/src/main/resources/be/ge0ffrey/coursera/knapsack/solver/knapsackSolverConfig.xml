@@ -10,8 +10,8 @@
   <!-- Score configuration -->
   <scoreDirectorFactory>
     <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
-    <easyScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</easyScoreCalculatorClass>
-    <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
+    <!--<easyScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</easyScoreCalculatorClass>-->
+    <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackIncrementalScoreCalculator</incrementalScoreCalculatorClass>
     <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
     <!--<assertionScoreDirectorFactory>-->
       <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</incrementalScoreCalculatorClass>-->
