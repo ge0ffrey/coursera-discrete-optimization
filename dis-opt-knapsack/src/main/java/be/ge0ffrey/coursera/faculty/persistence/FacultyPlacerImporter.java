@@ -93,7 +93,7 @@ public class FacultyPlacerImporter extends AbstractTxtSolutionImporter {
                 id++;
                 faculty.setSetupCost((long) (Double.valueOf(lineTokens[0]) * 10000.0));
                 faculty.setCapacity(Integer.valueOf(lineTokens[1]));
-                faculty.setLocation(new Location(Double.valueOf(lineTokens[2]), Double.valueOf(lineTokens[3])));
+                faculty.setLocation(new Location(Double.valueOf(lineTokens[3]), Double.valueOf(lineTokens[2])));
                 facultyList.add(faculty);
             }
             solution.setFacultyList(facultyList);
@@ -108,7 +108,7 @@ public class FacultyPlacerImporter extends AbstractTxtSolutionImporter {
                 customer.setId(id);
                 id++;
                 customer.setDemand(Integer.valueOf(lineTokens[0]));
-                customer.setLocation(new Location(Double.valueOf(lineTokens[1]), Double.valueOf(lineTokens[2])));
+                customer.setLocation(new Location(Double.valueOf(lineTokens[2]), Double.valueOf(lineTokens[1])));
                 customerList.add(customer);
             }
             solution.setCustomerList(customerList);
