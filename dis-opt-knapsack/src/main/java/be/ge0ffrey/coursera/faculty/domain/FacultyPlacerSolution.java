@@ -25,8 +25,8 @@ import com.thoughtworks.xstream.annotations.XStreamConverter;
 import org.optaplanner.core.api.domain.solution.PlanningEntityCollectionProperty;
 import org.optaplanner.core.api.domain.solution.PlanningSolution;
 import org.optaplanner.core.api.domain.valuerange.ValueRangeProvider;
-import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
-import org.optaplanner.core.impl.score.buildin.hardsoft.HardSoftScoreDefinition;
+import org.optaplanner.core.api.score.buildin.hardsoftlong.HardSoftLongScore;
+import org.optaplanner.core.impl.score.buildin.hardsoftlong.HardSoftLongScoreDefinition;
 import org.optaplanner.core.impl.solution.Solution;
 import org.optaplanner.examples.cloudbalancing.domain.CloudComputer;
 import org.optaplanner.examples.cloudbalancing.domain.CloudProcess;
@@ -35,7 +35,7 @@ import org.optaplanner.persistence.xstream.XStreamScoreConverter;
 
 @PlanningSolution
 @XStreamAlias("FacultyPlacerSolution")
-public class FacultyPlacerSolution extends AbstractPersistable implements Solution<HardSoftScore> {
+public class FacultyPlacerSolution extends AbstractPersistable implements Solution<HardSoftLongScore> {
 
     private String name;
     private List<Location> locationList;
@@ -43,8 +43,8 @@ public class FacultyPlacerSolution extends AbstractPersistable implements Soluti
 
     private List<Customer> customerList;
 
-    @XStreamConverter(value = XStreamScoreConverter.class, types = {HardSoftScoreDefinition.class})
-    private HardSoftScore score;
+    @XStreamConverter(value = XStreamScoreConverter.class, types = {HardSoftLongScoreDefinition.class})
+    private HardSoftLongScore score;
 
     public String getName() {
         return name;
@@ -80,11 +80,11 @@ public class FacultyPlacerSolution extends AbstractPersistable implements Soluti
         this.customerList = customerList;
     }
 
-    public HardSoftScore getScore() {
+    public HardSoftLongScore getScore() {
         return score;
     }
 
-    public void setScore(HardSoftScore score) {
+    public void setScore(HardSoftLongScore score) {
         this.score = score;
     }
 

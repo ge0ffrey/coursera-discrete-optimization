@@ -91,7 +91,7 @@ public class FacultyPlacerImporter extends AbstractTxtSolutionImporter {
                 Faculty faculty = new Faculty();
                 faculty.setId(id);
                 id++;
-                faculty.setSetupCost(Integer.valueOf(lineTokens[0]));
+                faculty.setSetupCost((long) (Double.valueOf(lineTokens[0]) * 10000.0));
                 faculty.setCapacity(Integer.valueOf(lineTokens[1]));
                 faculty.setLocation(new Location(Double.valueOf(lineTokens[2]), Double.valueOf(lineTokens[3])));
                 facultyList.add(faculty);

@@ -55,7 +55,7 @@ public class FacultyPlacerExporter extends AbstractTxtSolutionExporter {
         }
 
         public void writeSolution() throws IOException {
-            bufferedWriter.write(solution.getScore().getSoftScore() + " 0\n");
+            bufferedWriter.write((- solution.getScore().getSoftScore() / 1000L) + " 0\n");
             for (Customer customer : solution.getCustomerList()) {
                 bufferedWriter.write(customer.getFaculty().getId() + " ");
             }

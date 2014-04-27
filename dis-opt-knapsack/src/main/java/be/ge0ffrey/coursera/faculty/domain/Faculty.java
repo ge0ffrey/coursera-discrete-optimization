@@ -22,15 +22,15 @@ import org.optaplanner.examples.common.domain.AbstractPersistable;
 @XStreamAlias("Faculty")
 public class Faculty extends AbstractPersistable {
 
-    private int setupCost;
+    private long setupCost;
     private int capacity;
     private Location location;
 
-    public int getSetupCost() {
+    public long getSetupCost() {
         return setupCost;
     }
 
-    public void setSetupCost(int setupCost) {
+    public void setSetupCost(long setupCost) {
         this.setupCost = setupCost;
     }
 
