@@ -23,9 +23,6 @@ import java.util.Map;
 import be.ge0ffrey.coursera.faculty.domain.Customer;
 import be.ge0ffrey.coursera.faculty.domain.Faculty;
 import be.ge0ffrey.coursera.faculty.domain.FacultyPlacerSolution;
-import be.ge0ffrey.coursera.knapsack.domain.Item;
-import be.ge0ffrey.coursera.knapsack.domain.Knapsack;
-import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.api.score.buildin.hardsoftlong.HardSoftLongScore;
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
 

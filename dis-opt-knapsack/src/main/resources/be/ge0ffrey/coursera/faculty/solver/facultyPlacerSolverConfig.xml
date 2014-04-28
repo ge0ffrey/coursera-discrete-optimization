@@ -26,9 +26,9 @@
   <!-- Score configuration -->
   <scoreDirectorFactory>
     <scoreDefinitionType>HARD_SOFT_LONG</scoreDefinitionType>
-    <easyScoreCalculatorClass>be.ge0ffrey.coursera.faculty.solver.score.FacultyPlacerEasyScoreCalculator</easyScoreCalculatorClass>
-    <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.faculty.solver.score.FacultyPlacerIncrementalScoreCalculator</incrementalScoreCalculatorClass>-->
-    <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+    <!--<easyScoreCalculatorClass>be.ge0ffrey.coursera.faculty.solver.score.FacultyPlacerEasyScoreCalculator</easyScoreCalculatorClass>-->
+    <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.faculty.solver.score.FacultyPlacerIncrementalScoreCalculator</incrementalScoreCalculatorClass>
+    <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
     <!--<assertionScoreDirectorFactory>-->
       <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.faculty.solver.score.FacultyPlacerEasyScoreCalculator</incrementalScoreCalculatorClass>-->
     <!--</assertionScoreDirectorFactory>-->

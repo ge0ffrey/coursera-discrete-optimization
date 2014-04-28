@@ -15,6 +15,7 @@
       <inputSolutionFile>data/knapsack/import/ks_1000_0.txt</inputSolutionFile>
       <inputSolutionFile>data/knapsack/import/ks_10000_0.txt</inputSolutionFile>
       <problemStatisticType>BEST_SCORE</problemStatisticType>
+      <writeOutputSolutionEnabled>true</writeOutputSolutionEnabled>
     </problemBenchmarks>
 
     <solver>
@@ -28,7 +29,7 @@
       </scoreDirectorFactory>
 
       <termination>
-        <minutesSpentLimit>2</minutesSpentLimit>
+        <minutesSpentLimit>60</minutesSpentLimit>
       </termination>
     </solver>
   </inheritedSolverBenchmark>

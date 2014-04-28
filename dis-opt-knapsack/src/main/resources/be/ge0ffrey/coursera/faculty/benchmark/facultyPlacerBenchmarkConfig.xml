@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plannerBenchmark>
+  <benchmarkDirectory>local/data/faculty</benchmarkDirectory>
+  <parallelBenchmarkCount>AUTO</parallelBenchmarkCount>
+  <warmUpSecondsSpentLimit>30</warmUpSecondsSpentLimit>
+
+  <inheritedSolverBenchmark>
+    <problemBenchmarks>
+      <problemIOClass>be.ge0ffrey.coursera.faculty.persistence.FacultyPlacerProblemIO</problemIOClass>
+      <inputSolutionFile>data/faculty/import/fl_25_2.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_50_6.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_100_1.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_100_7.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_200_7.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_500_7.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_1000_2.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_2000_2.txt</inputSolutionFile>
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+      <writeOutputSolutionEnabled>true</writeOutputSolutionEnabled>
+    </problemBenchmarks>
+
+    <solver>
+      <solutionClass>be.ge0ffrey.coursera.faculty.domain.FacultyPlacerSolution</solutionClass>
+      <planningEntityClass>be.ge0ffrey.coursera.faculty.domain.Customer</planningEntityClass>
+
+      <scoreDirectorFactory>
+        <scoreDefinitionType>HARD_SOFT_LONG</scoreDefinitionType>
+        <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.faculty.solver.score.FacultyPlacerIncrementalScoreCalculator</incrementalScoreCalculatorClass>
+        <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
+      </scoreDirectorFactory>
+
+      <termination>
+        <minutesSpentLimit>60</minutesSpentLimit>
+      </termination>
+    </solver>
+  </inheritedSolverBenchmark>
+
+  <solverBenchmark>
+    <name>Tabu Search</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <acceptor>
+          <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>2000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Late acceptance 400</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <lateAcceptanceSize>400</lateAcceptanceSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>1</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+</plannerBenchmark>

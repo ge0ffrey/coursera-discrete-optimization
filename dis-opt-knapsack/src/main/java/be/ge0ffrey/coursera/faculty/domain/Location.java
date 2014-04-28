@@ -57,14 +57,14 @@ public class Location extends AbstractPersistable {
      * @param location never null
      * @return a positive number, the distance multiplied by 10000 to avoid floating point arithmetic rounding errors
      */
-    public int getDistance(Location location) {
+    public long getDistance(Location location) {
         // Implementation specified by TSPLIB http://www2.iwr.uni-heidelberg.de/groups/comopt/software/TSPLIB95/
         // Euclidean distance (Pythagorean theorem) - not correct when the surface is a sphere
         double latitudeDifference = location.latitude - latitude;
         double longitudeDifference = location.longitude - longitude;
         double distance = Math.sqrt(
                 (latitudeDifference * latitudeDifference) + (longitudeDifference * longitudeDifference));
-        return (int) (distance * 10000.0 + 0.5);
+        return (long) (distance * 10000.0 + 0.5);
     }
 
 }
