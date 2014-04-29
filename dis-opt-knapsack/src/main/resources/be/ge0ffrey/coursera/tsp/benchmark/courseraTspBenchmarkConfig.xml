@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plannerBenchmark>
+  <benchmarkDirectory>local/data/tsp</benchmarkDirectory>
+  <parallelBenchmarkCount>AUTO</parallelBenchmarkCount>
+  <warmUpSecondsSpentLimit>30</warmUpSecondsSpentLimit>
+
+  <inheritedSolverBenchmark>
+    <problemBenchmarks>
+      <problemIOClass>be.ge0ffrey.coursera.tsp.persistence.CourseraTspProblemIO</problemIOClass>
+      <inputSolutionFile>data/tsp/import/tsp_51_1.txt</inputSolutionFile>
+      <inputSolutionFile>data/tsp/import/tsp_100_3.txt</inputSolutionFile>
+      <inputSolutionFile>data/tsp/import/tsp_200_2.txt</inputSolutionFile>
+      <inputSolutionFile>data/tsp/import/tsp_574_1.txt</inputSolutionFile>
+      <inputSolutionFile>data/tsp/import/tsp_1889_1.txt</inputSolutionFile>
+      <inputSolutionFile>data/tsp/import/tsp_33810_1.txt</inputSolutionFile>
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+    </problemBenchmarks>
+
+    <solver>
+      <solutionClass>org.optaplanner.examples.tsp.domain.TravelingSalesmanTour</solutionClass>
+      <planningEntityClass>org.optaplanner.examples.tsp.domain.Visit</planningEntityClass>
+
+      <scoreDirectorFactory>
+        <scoreDefinitionType>SIMPLE_LONG</scoreDefinitionType>
+        <incrementalScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspIncrementalScoreCalculator</incrementalScoreCalculatorClass>
+      </scoreDirectorFactory>
+
+      <termination>
+        <minutesSpentLimit>1</minutesSpentLimit>
+      </termination>
+    </solver>
+  </inheritedSolverBenchmark>
+
+  <solverBenchmark>
+    <name>Tabu Search</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+          <subChainChangeMoveSelector>
+            <subChainSelector>
+              <maximumSubChainSize>100</maximumSubChainSize>
+            </subChainSelector>
+            <selectReversingMoveToo>true</selectReversingMoveToo>
+          </subChainChangeMoveSelector>
+          <subChainSwapMoveSelector>
+            <subChainSelector>
+              <maximumSubChainSize>100</maximumSubChainSize>
+            </subChainSelector>
+            <selectReversingMoveToo>true</selectReversingMoveToo>
+          </subChainSwapMoveSelector>
+        </unionMoveSelector>
+        <acceptor>
+          <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>5000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+</plannerBenchmark>
