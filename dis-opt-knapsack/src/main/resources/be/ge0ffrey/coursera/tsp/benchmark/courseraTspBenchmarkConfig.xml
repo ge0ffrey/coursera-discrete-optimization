@@ -15,6 +15,7 @@
       <inputSolutionFile>data/tsp/import/tsp_1889_1.txt</inputSolutionFile>
       <inputSolutionFile>data/tsp/import/tsp_33810_1.txt</inputSolutionFile>
       <problemStatisticType>BEST_SCORE</problemStatisticType>
+      <writeOutputSolutionEnabled>true</writeOutputSolutionEnabled>
     </problemBenchmarks>
 
     <solver>
@@ -24,10 +25,11 @@
       <scoreDirectorFactory>
         <scoreDefinitionType>SIMPLE_LONG</scoreDefinitionType>
         <incrementalScoreCalculatorClass>org.optaplanner.examples.tsp.solver.score.TspIncrementalScoreCalculator</incrementalScoreCalculatorClass>
+        <initializingScoreTrend>ONLY_DOWN</initializingScoreTrend>
       </scoreDirectorFactory>
 
       <termination>
-        <minutesSpentLimit>1</minutesSpentLimit>
+        <minutesSpentLimit>90</minutesSpentLimit>
       </termination>
     </solver>
   </inheritedSolverBenchmark>
@@ -60,6 +62,38 @@
         </acceptor>
         <forager>
           <acceptedCountLimit>5000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Late Acceptance 400</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+          <subChainChangeMoveSelector>
+            <subChainSelector>
+              <maximumSubChainSize>100</maximumSubChainSize>
+            </subChainSelector>
+            <selectReversingMoveToo>true</selectReversingMoveToo>
+          </subChainChangeMoveSelector>
+          <subChainSwapMoveSelector>
+            <subChainSelector>
+              <maximumSubChainSize>100</maximumSubChainSize>
+            </subChainSelector>
+            <selectReversingMoveToo>true</selectReversingMoveToo>
+          </subChainSwapMoveSelector>
+        </unionMoveSelector>
+        <acceptor>
+          <lateAcceptanceSize>400</lateAcceptanceSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>1</acceptedCountLimit>
         </forager>
       </localSearch>
     </solver>
