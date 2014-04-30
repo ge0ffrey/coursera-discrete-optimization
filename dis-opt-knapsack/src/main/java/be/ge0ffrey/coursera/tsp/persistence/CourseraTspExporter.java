@@ -42,10 +42,10 @@ public class CourseraTspExporter extends AbstractTxtSolutionExporter {
     }
 
     public TxtOutputBuilder createTxtOutputBuilder() {
-        return new TspOutputBuilder();
+        return new CourseraTspOutputBuilder();
     }
 
-    public static class TspOutputBuilder extends TxtOutputBuilder {
+    public static class CourseraTspOutputBuilder extends TxtOutputBuilder {
 
         private TravelingSalesmanTour solution;
 

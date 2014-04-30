@@ -1,0 +1,81 @@
+/*
+ * Copyright 2014 JBoss Inc
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package be.ge0ffrey.coursera.vrp.app;
+
+import be.ge0ffrey.coursera.vrp.persistence.CourseraVrpDao;
+import be.ge0ffrey.coursera.vrp.persistence.CourseraVrpExporter;
+import be.ge0ffrey.coursera.vrp.persistence.CourseraVrpImporter;
+import org.optaplanner.core.api.solver.Solver;
+import org.optaplanner.core.api.solver.SolverFactory;
+import org.optaplanner.examples.common.app.CommonApp;
+import org.optaplanner.examples.common.persistence.AbstractSolutionExporter;
+import org.optaplanner.examples.common.persistence.AbstractSolutionImporter;
+import org.optaplanner.examples.common.persistence.SolutionDao;
+import org.optaplanner.examples.common.swingui.SolutionPanel;
+import org.optaplanner.examples.vehiclerouting.app.VehicleRoutingApp;
+import org.optaplanner.examples.vehiclerouting.persistence.VehicleRoutingDao;
+import org.optaplanner.examples.vehiclerouting.persistence.VehicleRoutingImporter;
+import org.optaplanner.examples.vehiclerouting.swingui.VehicleRoutingPanel;
+
+public class CourseraVrpApp extends CommonApp {
+
+    public static final String SOLVER_CONFIG
+            = "org/optaplanner/examples/vehiclerouting/solver/vehicleRoutingSolverConfig.xml";
+
+    public static void main(String[] args) {
+        prepareSwingEnvironment();
+        new CourseraVrpApp().init();
+    }
+
+    public CourseraVrpApp() {
+        super("Vehicle routing",
+                "Official competition name: Capacitated vehicle routing problem (CVRP), " +
+                        "optionally with time windows (CVRPTW)\n\n" +
+                        "Pick up all items of all customers with a few vehicles.\n\n" +
+                        "Find the shortest route possible.\n" +
+                        "Do not overload the capacity of the vehicles.\n" +
+                        "Arrive within the time window of each customer.",
+                VehicleRoutingPanel.LOGO_PATH);
+    }
+
+    @Override
+    protected Solver createSolver() {
+        SolverFactory solverFactory = SolverFactory.createFromXmlResource(SOLVER_CONFIG);
+        return solverFactory.buildSolver();
+    }
+
+    @Override
+    protected SolutionPanel createSolutionPanel() {
+        return new VehicleRoutingPanel();
+    }
+
+    @Override
+    protected SolutionDao createSolutionDao() {
+        return new CourseraVrpDao();
+    }
+
+    @Override
+    protected AbstractSolutionImporter createSolutionImporter() {
+        return new CourseraVrpImporter();
+    }
+
+    @Override
+    protected AbstractSolutionExporter createSolutionExporter() {
+        return new CourseraVrpExporter();
+    }
+
+}

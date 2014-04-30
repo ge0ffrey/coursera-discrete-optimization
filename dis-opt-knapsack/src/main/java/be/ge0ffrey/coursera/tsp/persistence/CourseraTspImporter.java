@@ -16,11 +16,9 @@
 
 package be.ge0ffrey.coursera.tsp.persistence;
 
-import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.apache.commons.io.FilenameUtils;
@@ -49,10 +47,10 @@ public class CourseraTspImporter extends AbstractTxtSolutionImporter {
     }
 
     public TxtInputBuilder createTxtInputBuilder() {
-        return new TspInputBuilder();
+        return new CourseraTspInputBuilder();
     }
 
-    public static class TspInputBuilder extends TxtInputBuilder {
+    public static class CourseraTspInputBuilder extends TxtInputBuilder {
 
         private TravelingSalesmanTour travelingSalesmanTour;
 
