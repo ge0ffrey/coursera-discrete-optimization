@@ -14,16 +14,19 @@
  * limitations under the License.
  */
 
-package be.ge0ffrey.coursera.coloring.domain;
+package be.ge0ffrey.coursera.coloring.swingui;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import org.optaplanner.examples.common.domain.AbstractPersistable;
+import be.ge0ffrey.coursera.coloring.domain.ColoringSolution;
+import org.optaplanner.core.impl.solution.Solution;
+import org.optaplanner.examples.common.swingui.SolutionPanel;
 
-@XStreamAlias("Color")
-public class Color extends AbstractPersistable {
+public class ColoringPanel extends SolutionPanel {
 
-    // ************************************************************************
-    // Complex methods
-    // ************************************************************************
+    public ColoringPanel() {
+    }
+
+    public void resetPanel(Solution solution) {
+        ColoringSolution coloringSolution = (ColoringSolution) solution;
+    }
 
 }

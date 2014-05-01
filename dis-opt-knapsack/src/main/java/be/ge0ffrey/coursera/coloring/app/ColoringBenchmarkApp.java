@@ -14,16 +14,21 @@
  * limitations under the License.
  */
 
-package be.ge0ffrey.coursera.coloring.domain;
+package be.ge0ffrey.coursera.coloring.app;
 
-import com.thoughtworks.xstream.annotations.XStreamAlias;
-import org.optaplanner.examples.common.domain.AbstractPersistable;
+import org.optaplanner.examples.common.app.CommonBenchmarkApp;
 
-@XStreamAlias("Color")
-public class Color extends AbstractPersistable {
+public class ColoringBenchmarkApp extends CommonBenchmarkApp {
 
-    // ************************************************************************
-    // Complex methods
-    // ************************************************************************
+    public static void main(String[] args) {
+        new ColoringBenchmarkApp().buildAndBenchmark(args);
+    }
+
+    public ColoringBenchmarkApp() {
+        super(
+                new ArgOption("default",
+                        "be/ge0ffrey/coursera/coloring/benchmark/coloringBenchmarkConfig.xml")
+        );
+    }
 
 }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plannerBenchmark>
+  <benchmarkDirectory>local/data/coloring</benchmarkDirectory>
+  <parallelBenchmarkCount>AUTO</parallelBenchmarkCount>
+  <warmUpSecondsSpentLimit>30</warmUpSecondsSpentLimit>
+
+  <inheritedSolverBenchmark>
+    <problemBenchmarks>
+      <problemIOClass>be.ge0ffrey.coursera.coloring.persistence.ColoringProblemIO</problemIOClass>
+      <inputSolutionFile>data/coloring/import/gc_50_3.txt</inputSolutionFile>
+      <inputSolutionFile>data/coloring/import/gc_70_7.txt</inputSolutionFile>
+      <inputSolutionFile>data/coloring/import/gc_100_5.txt</inputSolutionFile>
+      <inputSolutionFile>data/coloring/import/gc_250_9.txt</inputSolutionFile>
+      <inputSolutionFile>data/coloring/import/gc_500_1.txt</inputSolutionFile>
+      <inputSolutionFile>data/coloring/import/gc_1000_5.txt</inputSolutionFile>
+      <problemStatisticType>BEST_SCORE</problemStatisticType>
+      <writeOutputSolutionEnabled>true</writeOutputSolutionEnabled>
+    </problemBenchmarks>
+
+    <solver>
+      <solutionClass>be.ge0ffrey.coursera.coloring.domain.ColoringSolution</solutionClass>
+      <planningEntityClass>be.ge0ffrey.coursera.coloring.domain.Node</planningEntityClass>
+
+      <scoreDirectorFactory>
+        <scoreDefinitionType>HARD_SOFT_LONG</scoreDefinitionType>
+        <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.coloring.solver.score.ColoringIncrementalScoreCalculator</incrementalScoreCalculatorClass>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+      </scoreDirectorFactory>
+
+      <termination>
+        <minutesSpentLimit>60</minutesSpentLimit>
+      </termination>
+    </solver>
+  </inheritedSolverBenchmark>
+
+  <solverBenchmark>
+    <name>Tabu Search</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <acceptor>
+          <entityTabuSize>7</entityTabuSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>2000</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+  <solverBenchmark>
+    <name>Late acceptance 400</name>
+    <solver>
+      <constructionHeuristic>
+        <constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+      </constructionHeuristic>
+      <localSearch>
+        <unionMoveSelector>
+          <changeMoveSelector/>
+          <swapMoveSelector/>
+        </unionMoveSelector>
+        <acceptor>
+          <lateAcceptanceSize>400</lateAcceptanceSize>
+        </acceptor>
+        <forager>
+          <acceptedCountLimit>1</acceptedCountLimit>
+        </forager>
+      </localSearch>
+    </solver>
+  </solverBenchmark>
+</plannerBenchmark>
