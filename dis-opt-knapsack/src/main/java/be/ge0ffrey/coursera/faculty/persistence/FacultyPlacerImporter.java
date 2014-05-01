@@ -69,7 +69,7 @@ public class FacultyPlacerImporter extends AbstractTxtSolutionImporter {
 
             BigInteger possibleSolutionSize = BigInteger.valueOf(solution.getFacultyList().size())
                     .pow(solution.getCustomerList().size());
-            logger.info("Knapsack {} has {} faculties and {} customers with a search space of {}.",
+            logger.info("FacultyPlacerSolution {} has {} faculties and {} customers with a search space of {}.",
                     getInputId(),
                     solution.getFacultyList().size(),
                     solution.getCustomerList().size(),

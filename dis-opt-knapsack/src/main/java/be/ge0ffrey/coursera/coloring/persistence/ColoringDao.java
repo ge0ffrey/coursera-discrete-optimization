@@ -14,16 +14,15 @@
  * limitations under the License.
  */
 
-package be.ge0ffrey.coursera.faculty.persistence;
+package be.ge0ffrey.coursera.coloring.persistence;
 
-import be.ge0ffrey.coursera.faculty.domain.FacultyPlacerSolution;
-import org.optaplanner.examples.cloudbalancing.domain.CloudBalance;
+import be.ge0ffrey.coursera.coloring.domain.ColoringSolution;
 import org.optaplanner.examples.common.persistence.XStreamSolutionDao;
 
-public class FacultyPlacerDao extends XStreamSolutionDao {
+public class ColoringDao extends XStreamSolutionDao {
 
-    public FacultyPlacerDao() {
-        super("faculty", FacultyPlacerSolution.class);
+    public ColoringDao() {
+        super("coloring", ColoringSolution.class);
     }
 
 }

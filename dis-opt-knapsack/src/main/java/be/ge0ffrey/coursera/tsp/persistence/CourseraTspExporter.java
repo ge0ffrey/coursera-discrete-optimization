@@ -60,6 +60,7 @@ public class CourseraTspExporter extends AbstractTxtSolutionExporter {
                 bufferedWriter.write(standstill.getCity().getId() + " ");
                 standstill = findNextVisit(standstill);
             }
+            bufferedWriter.write("\n");
         }
 
         private Standstill findNextVisit(Standstill standstill) {
