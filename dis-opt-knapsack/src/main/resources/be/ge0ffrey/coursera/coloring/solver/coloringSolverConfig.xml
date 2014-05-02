@@ -9,12 +9,12 @@
 
   <!-- Score configuration -->
   <scoreDirectorFactory>
-    <scoreDefinitionType>HARD_SOFT_LONG</scoreDefinitionType>
+    <scoreDefinitionType>HARD_MEDIUM_SOFT_LONG</scoreDefinitionType>
     <!--<easyScoreCalculatorClass>be.ge0ffrey.coursera.coloring.solver.score.ColoringEasyScoreCalculator</easyScoreCalculatorClass>-->
     <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.coloring.solver.score.ColoringIncrementalScoreCalculator</incrementalScoreCalculatorClass>
-    <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+    <initializingScoreTrend>ONLY_DOWN/ONLY_DOWN/ONLY_UP</initializingScoreTrend>
     <!--<assertionScoreDirectorFactory>-->
-      <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.coloring.solver.score.ColoringEasyScoreCalculator</incrementalScoreCalculatorClass>-->
+      <!--<easyScoreCalculatorClass>be.ge0ffrey.coursera.coloring.solver.score.ColoringEasyScoreCalculator</easyScoreCalculatorClass>-->
     <!--</assertionScoreDirectorFactory>-->
   </scoreDirectorFactory>
 

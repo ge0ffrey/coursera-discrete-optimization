@@ -116,9 +116,10 @@ public class ColoringImporter extends AbstractTxtSolutionImporter {
         }
 
         private void createColorList() {
-            List<Color> colorList = new ArrayList<Color>(nodeListSize);
+            int colorListSize = nodeListSize / 2;
+            List<Color> colorList = new ArrayList<Color>(colorListSize);
             long id = 0L;
-            for (int i = 0; i < nodeListSize; i++) {
+            for (int i = 0; i < colorListSize; i++) {
                 Color color = new Color();
                 color.setId(id);
                 id++;

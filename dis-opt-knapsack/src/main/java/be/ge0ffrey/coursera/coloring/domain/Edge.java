@@ -17,8 +17,11 @@
 package be.ge0ffrey.coursera.coloring.domain;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import org.optaplanner.core.api.domain.entity.PlanningEntity;
+import org.optaplanner.core.api.domain.solution.cloner.DeepPlanningClone;
 import org.optaplanner.examples.common.domain.AbstractPersistable;
 
+@DeepPlanningClone
 @XStreamAlias("Edge")
 public class Edge extends AbstractPersistable {
 
@@ -47,6 +50,17 @@ public class Edge extends AbstractPersistable {
     @Override
     public String toString() {
         return leftNode + "-" + rightNode;
+    }
+
+    public Node getOtherNode(Node node) {
+        if (node == leftNode) {
+            return rightNode;
+        } else if (node == rightNode) {
+            return leftNode;
+        } else {
+            throw new IllegalArgumentException("The node (" + node
+                    + ") is not leftNode (" + leftNode + ") or rightNode (" + rightNode + ").");
+        }
     }
 
 }
