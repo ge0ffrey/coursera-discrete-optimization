@@ -53,7 +53,7 @@ public class ColoringExporter extends AbstractTxtSolutionExporter {
         }
 
         public void writeSolution() throws IOException {
-            bufferedWriter.write("? 0\n");
+            bufferedWriter.write((- solution.getScore().getMediumScore()) + " 0\n");
             for (Node node : solution.getNodeList()) {
                 bufferedWriter.write(node.getColor().getId() + " ");
             }
