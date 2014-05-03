@@ -42,11 +42,18 @@
     <constructionHeuristicType>FIRST_FIT_DECREASING</constructionHeuristicType>
   </constructionHeuristic>
   <localSearch>
+    <unionMoveSelector>
+      <changeMoveSelector/>
+      <swapMoveSelector/>
+      <pillarChangeMoveSelector/>
+    </unionMoveSelector>
     <acceptor>
       <entityTabuSize>7</entityTabuSize>
+      <!--<acceptorType>HILL_CLIMBING</acceptorType>-->
     </acceptor>
     <forager>
       <acceptedCountLimit>2000</acceptedCountLimit>
+      <!--<acceptedCountLimit>1</acceptedCountLimit>-->
     </forager>
   </localSearch>
 </solver>

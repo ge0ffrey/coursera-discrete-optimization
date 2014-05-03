@@ -10,8 +10,8 @@
       <problemIOClass>be.ge0ffrey.coursera.faculty.persistence.FacultyPlacerProblemIO</problemIOClass>
       <inputSolutionFile>data/faculty/import/fl_25_2.txt</inputSolutionFile>
       <inputSolutionFile>data/faculty/import/fl_50_6.txt</inputSolutionFile>
-      <inputSolutionFile>data/faculty/import/fl_100_1.txt</inputSolutionFile>
       <inputSolutionFile>data/faculty/import/fl_100_7.txt</inputSolutionFile>
+      <inputSolutionFile>data/faculty/import/fl_100_1.txt</inputSolutionFile>
       <inputSolutionFile>data/faculty/import/fl_200_7.txt</inputSolutionFile>
       <inputSolutionFile>data/faculty/import/fl_500_7.txt</inputSolutionFile>
       <inputSolutionFile>data/faculty/import/fl_1000_2.txt</inputSolutionFile>
