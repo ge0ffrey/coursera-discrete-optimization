@@ -18,12 +18,13 @@ package be.ge0ffrey.coursera.knapsack.solver.score;
 
 import be.ge0ffrey.coursera.knapsack.domain.Item;
 import be.ge0ffrey.coursera.knapsack.domain.Knapsack;
+import org.optaplanner.core.api.score.buildin.hardmediumsoft.HardMediumSoftScore;
 import org.optaplanner.core.api.score.buildin.hardsoft.HardSoftScore;
 import org.optaplanner.core.impl.score.director.easy.EasyScoreCalculator;
 
 public class KnapsackEasyScoreCalculator implements EasyScoreCalculator<Knapsack> {
 
-    public HardSoftScore calculateScore(Knapsack knapsack) {
+    public HardMediumSoftScore calculateScore(Knapsack knapsack) {
         int free = knapsack.getCapacity();
         int valueTotal = 0;
         for (Item item : knapsack.getItemList()) {
@@ -34,7 +35,7 @@ public class KnapsackEasyScoreCalculator implements EasyScoreCalculator<Knapsack
                 }
             }
         }
-        return HardSoftScore.valueOf(free >= 0 ? 0 : free, valueTotal);
+        return HardMediumSoftScore.valueOf(free >= 0 ? 0 : free, valueTotal, free);
     }
 
 }

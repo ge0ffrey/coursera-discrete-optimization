@@ -9,10 +9,10 @@
 
   <!-- Score configuration -->
   <scoreDirectorFactory>
-    <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+    <scoreDefinitionType>HARD_MEDIUM_SOFT</scoreDefinitionType>
     <!--<easyScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</easyScoreCalculatorClass>-->
     <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackIncrementalScoreCalculator</incrementalScoreCalculatorClass>
-    <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+    <initializingScoreTrend>ONLY_DOWN/ONLY_UP/ONLY_DOWN</initializingScoreTrend>
     <!--<assertionScoreDirectorFactory>-->
       <!--<incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackEasyScoreCalculator</incrementalScoreCalculatorClass>-->
     <!--</assertionScoreDirectorFactory>-->
@@ -30,12 +30,17 @@
       <moveIteratorFactoryClass>be.ge0ffrey.coursera.knapsack.solver.move.MultiItemInverseMoveIteratorFactory</moveIteratorFactoryClass>
     </moveIteratorFactory>
     <acceptor>
-      <!--<entityTabuSize>7</entityTabuSize>-->
-      <acceptorType>HILL_CLIMBING</acceptorType>
+      <entityTabuSize>7</entityTabuSize>
     </acceptor>
     <forager>
-      <acceptedCountLimit>2000000000</acceptedCountLimit>
-      <pickEarlyType>FIRST_LAST_STEP_SCORE_IMPROVING</pickEarlyType>
+      <acceptedCountLimit>1000</acceptedCountLimit>
     </forager>
+    <!--<acceptor>-->
+      <!--<acceptorType>HILL_CLIMBING</acceptorType>-->
+    <!--</acceptor>-->
+    <!--<forager>-->
+      <!--<acceptedCountLimit>2000000000</acceptedCountLimit>-->
+      <!--<pickEarlyType>FIRST_LAST_STEP_SCORE_IMPROVING</pickEarlyType>-->
+    <!--</forager>-->
   </localSearch>
 </solver>

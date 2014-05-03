@@ -23,9 +23,9 @@
       <planningEntityClass>be.ge0ffrey.coursera.knapsack.domain.Item</planningEntityClass>
 
       <scoreDirectorFactory>
-        <scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+        <scoreDefinitionType>HARD_MEDIUM_SOFT</scoreDefinitionType>
         <incrementalScoreCalculatorClass>be.ge0ffrey.coursera.knapsack.solver.score.KnapsackIncrementalScoreCalculator</incrementalScoreCalculatorClass>
-        <initializingScoreTrend>ONLY_DOWN/ONLY_UP</initializingScoreTrend>
+        <initializingScoreTrend>ONLY_DOWN/ONLY_UP/ONLY_DOWN</initializingScoreTrend>
       </scoreDirectorFactory>
 
       <termination>
